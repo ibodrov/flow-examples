@@ -1,0 +1,12 @@
+flows:
+  default:
+    - form: cpSelection
+      fields:
+        - controlPlane: { type: "string", allow: ["demo", "infra", "cicd"]}
+
+    - form: dpSelection
+      fields:
+        - dataPlane: { type: "string", allow: [ "prometheum", "demo", "whatevs" ] }
+
+    - log: ${cpSelection}
+    - log: ${dpSelection}
