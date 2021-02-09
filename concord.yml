@@ -1,12 +1,15 @@
+configuration:
+  runtime: "concord-v2"
+
 flows:
   default:
     - form: cpSelection
       fields:
         - controlPlane: { type: "string", allow: ["demo", "infra", "cicd"]}
 
+    # fetch the list of DPs
+
     - form: dpSelection
       fields:
-        - dataPlane: { type: "string", allow: [ "prometheum", "demo", "whatevs" ] }
+        - dataPlane: { type: "string", allow: ${availableDataPlanes} }
 
-    - log: ${cpSelection}
-    - log: ${dpSelection}
